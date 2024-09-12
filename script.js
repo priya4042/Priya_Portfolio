@@ -38,18 +38,39 @@ document.addEventListener('DOMContentLoaded', function() {
   observer.observe(skillSection);
 });
 
-const profileImage = document.getElementById('profileImage');
+// document.addEventListener('DOMContentLoaded', function() {
+//   const hamburger = document.querySelector('.hamburger');
+//   const navbar = document.querySelector('.navbar');
   
-profileImage.onload = function() {
-  const aspectRatio = profileImage.naturalWidth / profileImage.naturalHeight;
-  
-  if (aspectRatio > 1) {
-    // Landscape image, fit to width
-    profileImage.style.objectFit = 'cover';
-    profileImage.style.objectPosition = 'center';
-  } else {
-    // Portrait image, adjust to fit the container
-    profileImage.style.objectFit = 'contain';
-    profileImage.style.objectPosition = 'top';
-  }
-};
+//   hamburger.addEventListener('click', function() {
+//     navbar.classList.toggle('active');
+//   });
+// });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const hamburger = document.querySelector('.hamburger');
+  const navbar = document.querySelector('.navbar');
+  const sidebar = document.querySelector('.sidebar');
+  const closeBtn = document.querySelector('.close-btn');
+  const sidebarLinks = document.querySelectorAll('.sidebar-links a');
+
+  // Toggle sidebar visibility
+  hamburger.addEventListener('click', function() {
+    navbar.classList.toggle('active');
+  });
+
+  // Close sidebar when close button is clicked
+  closeBtn.addEventListener('click', function() {
+    navbar.classList.remove('active');
+  });
+
+  // Close sidebar when any sidebar link is clicked
+  sidebarLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      navbar.classList.remove('active');
+    });
+  });
+});
+
+
