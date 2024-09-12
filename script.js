@@ -1,0 +1,55 @@
+document.addEventListener('DOMContentLoaded', function() {
+  // Preloader functionality
+  const preloader = document.getElementById('preloader');
+  setTimeout(() => {
+    preloader.style.opacity = '0'; // Fade out the loader
+    preloader.style.visibility = 'hidden'; // Remove it from the view
+  }, 1000); // You can adjust the delay here
+
+  // Initialize skill bars and animate when scrolled into view
+  const skillSection = document.querySelector('#skills');
+  const progressBars = document.querySelectorAll('.progress');
+
+  // Initialize progress bars to 0 width (hidden initially)
+  progressBars.forEach((bar) => {
+    bar.style.width = '0%';
+  });
+
+  // Intersection Observer to trigger animation when skills section comes into view
+  const observerOptions = {
+    root: null, // The viewport
+    threshold: 0.2 // Trigger when 20% of the section is visible
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        progressBars.forEach((bar) => {
+          const skillPercent = bar.getAttribute('data-skill-percent');
+          bar.style.transition = 'width 1.5s ease'; // Smooth animation
+          bar.style.width = skillPercent + '%'; // Animate to the skill percentage
+        });
+        observer.unobserve(skillSection); // Unobserve to stop observing once animated
+      }
+    });
+  }, observerOptions);
+
+  // Start observing the skill section
+  observer.observe(skillSection);
+});
+
+const profileImage = document.getElementById('profileImage');
+  
+profileImage.onload = function() {
+  const aspectRatio = profileImage.naturalWidth / profileImage.naturalHeight;
+  
+  if (aspectRatio > 1) {
+    // Landscape image, fit to width
+    profileImage.style.objectFit = 'cover';
+    profileImage.style.objectPosition = 'center';
+  } else {
+    // Portrait image, adjust to fit the container
+    profileImage.style.objectFit = 'contain';
+    profileImage.style.objectPosition = 'top';
+  }
+};
