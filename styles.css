@@ -1,18 +1,28 @@
 /* Global Styles */
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
+} */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #f1f3f8, #dfe4ea);
+  background: #f7f7f7; /* Fallback color */
+  background: linear-gradient(to right, #f7f7f7, #ffffff);
   background-size: cover;
   color: #444;
   line-height: 1.6;
+  overflow-x: hidden;
 }
+
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Poppins', sans-serif;
@@ -25,7 +35,7 @@ p {
   line-height: 1.8;
 }
 
-/* Card Style */
+/* Responsive Card Section */
 .card {
   background-color: #ffffff;
   border-radius: 15px;
@@ -35,7 +45,13 @@ p {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   margin: 20px 0;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-  transform: perspective(1000px) rotateY(0deg);
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    padding: 15px;
+    margin: 15px 0;
+  }
 }
 
 .card:hover {
@@ -65,22 +81,20 @@ p {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  background: rgba(255, 255, 255, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  opacity: 0;
-  transition: opacity 0.5s ease-out;
 }
 
 .loader {
-  border: 6px solid rgba(255, 255, 255, 0.3);
-  border-top: 6px solid #ffffff;
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: spin 1.5s linear infinite;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
@@ -89,18 +103,18 @@ p {
 }
 
 /* Navbar styling */
-/* Navbar styling */
 .navbar {
-  background-color: #333;
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
-  z-index: 100;
+  background-color: #333;
+  z-index: 1000;
   padding: 15px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 
 .navbar .logo a {
   color: #fff;
@@ -245,6 +259,7 @@ p {
   text-align: center;
   position: relative;
   overflow: hidden;
+  padding: 50px 10px;
 }
 
 .header .container {
@@ -267,7 +282,7 @@ p {
 
 
 .header h1 {
-  font-size: 3.5rem;
+  font-size: 2rem;
   font-weight: bold;
   text-transform: uppercase;
   color: #fff;
@@ -288,13 +303,30 @@ p {
   background-color: #fff;
   color: #2575fc;
   border: none;
-  padding: 10px 20px; /* Adjust padding for smaller width */
+  padding: 10px 20px;
+  font-size: 0.9rem;
   border-radius: 30px;
   cursor: pointer;
   transition: background-color 0.4s ease, transform 0.4s ease;
-  font-size: 1rem; /* Adjust font size for better proportion */
   max-width: 200px; /* Optionally set a maximum width */
   display: inline-block; /* Ensures button width fits content */
+}
+
+/* For smaller screens */
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 50px 10px;
+  }
+  .header h1 {
+    font-size: 1.8rem;
+  }
+  .header p {
+    font-size: 1rem;
+  }
+  .header .btn {
+    padding: 8px 15px;
+    font-size: 0.8rem;
+  }
 }
 
 .header .btn:hover {
@@ -302,16 +334,6 @@ p {
   transform: scale(1.08);
 }
 
-
-/* .profile-image img {
-  border-radius: 50%;
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border: 5px solid #fff;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  animation: bounceIn 2s ease;
-} */
 
 @keyframes bounceIn {
   0% { transform: scale(0.5); opacity: 0; }
@@ -335,16 +357,6 @@ p {
   background-color: #f0f0f0;
   transform: scale(1.08);
 }
-
-/* .profile-image img {
-  border-radius: 50%;
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border: 5px solid #fff;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  animation: bounceIn 2s ease;
-} */
 
 @keyframes bounceIn {
   0% { transform: scale(0.5); opacity: 0; }
@@ -379,11 +391,13 @@ p {
   gap: 20px;
 }
 
-.profile-image img {
-  border-radius: 50%;
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
+@media screen and (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+  }
+  .about-text {
+    text-align: center;
+  }
 }
 
 .about-text {
@@ -442,8 +456,18 @@ p {
 
 /* Skills Section */
 .skills-section {
-  background-color: #f7f9fc;
-  padding: 60px 20px;
+  background: linear-gradient(90deg, #f7f9fc, #2575fc);
+  padding: 40px 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .skills-section {
+    padding: 30px 10px;
+  }
+
+  .skill h3 {
+    text-align: center;
+  }
 }
 
 .skill h3 {
@@ -469,7 +493,7 @@ p {
 
 /* Work Experience Section */
 .experience-section {
-  background: linear-gradient(120deg, #2575fc, #6a11cb);
+  background: linear-gradient(120deg, #2575fc, #11cb8d);
   color: #120e0eb3;
   padding: 60px 20px;
   transition: background 0.3s ease;
@@ -492,7 +516,7 @@ p {
 
 /* Education Section */
 .education-section {
-  background: linear-gradient(120deg, #4a6fd1, #6a11cb);
+  background: linear-gradient(120deg, #4ad1b8, #6a11cb);
   padding: 60px 20px;
   transition: background-color 0.3s ease;
 }
@@ -516,7 +540,7 @@ p {
 /* Contact Section */
 .contact-section {
   padding: 60px 46px;
-  background-color: #0093e9;
+  background: linear-gradient(120deg, #4ad1a5, #6a11cb);
   transition: background-color 0.3s ease;
 }
 
@@ -596,84 +620,351 @@ p {
   flex: 1;
 }
 
-.profile-image-container {
-  flex: 1;
+.profile-image {
+  flex: 1; /* This makes the profile image take space within the container */
+  max-width: 250px;
+  margin-right: 20px;
+}
+
+.profile-image img {
+  border-radius: 15%; /* Adjust this for a smoother rounded effect */
+  width: 100%; /* Make the image take full width of its container */
+  height: 326px; /* This ensures the aspect ratio is preserved */
+  object-fit: cover; /* Ensures that the image covers the container while maintaining aspect ratio */
+}
+
+.profile-img:hover, .profile-image:hover {
+  transform: rotateY(180deg); /* Half rotation on hover */
+}
+
+/* Adding a responsive image */
+@media screen and (max-width: 768px) {
+  .profile-img, .profile-image {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+
+/* Container Setup */
+.container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  position: relative;
-  width: 100%;
-  max-width: 350px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Hero Section Styling */
+.hero-section {
+  background: linear-gradient(120deg, #4ad1a5, #1151cb); /* Background color similar to the one in your image */
+  color: #fff;
+  padding: 60px 0;
+}
+
+.hero-text {
+  max-width: 50%;
+}
+
+.hero-text p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.hero-text h1 {
+  font-size: 48px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #FF5E6D;
+  color: #fff;
+  padding: 15px 30px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #ff4b5b;
+}
+
+/* Hero Image Styling */
+.hero-image {
+  max-width: 40%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.profile-img {
+  border-radius: 19%;
+  width: 251px;
+  height: 399px;
+  object-fit: cover;
 }
 
 .profile-image {
-  width: 100%;
+  position: relative;
   max-width: 250px;
-  height: 250px;
-  border-radius: 50%;
+  margin-right: 20px;
   overflow: hidden;
-  border: 5px solid #fff;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition: transform 0.4s ease;
+  border-radius: 15%;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .profile-image img {
   width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ensures the image fits within the container */
-  object-position: top center; /* Adjusts the position to focus on the top center of the image */
+  height: auto;
+  border-radius: 15%;
+  transition: transform 0.4s ease;
 }
 
-
-/* Animation: Add a slight rotation and scale on hover */
-.profile-image:hover {
-  transform: rotate(5deg) scale(1.05);
+.profile-image:hover img {
+  transform: scale(1.1);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* Add a decorative background circle */
-.profile-image-container::before {
-  content: '';
-  position: absolute;
-  top: -20px;
-  left: -20px;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #6e45e2, #88d3ce);
-  z-index: -1;
-  opacity: 0.8;
-}
-
-/* Media Query for responsive adjustments */
+/* Responsive Design */
 @media (max-width: 768px) {
   .container {
-    flex-direction: column;
-    text-align: center;
+      flex-direction: column;
+      text-align: center;
   }
-
-  .profile-image-container {
-    margin-top: 20px;
+  .hero-text, .hero-image {
+      max-width: 100%;
+  }
+  .profile-img {
+      width: 200px;
+      height: 200px;
   }
 }
 
-/* Media Query for responsive adjustments */
+.profile-img:hover, .profile-imag:hover {
+  transform: rotateY(180deg); /* Half rotation on hover */
+}
+
+/* Adding a responsive image */
+@media screen and (max-width: 768px) {
+  .profile-img, .profile-imag {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* Keyframes for additional hover animations, if needed */
+@keyframes rotateHalf {
+  0% {
+    transform: rotateY(0);
+  }
+  100% {
+    transform: rotateY(180deg);
+  }
+}
+
+.profile-img:hover, .profile-imag:hover {
+  animation: rotateHalf 0.6s ease-in-out;
+}
+
+
+/* footer */
+footer {
+  background-color: #333; /* Optional: Add a background color */
+  padding: 20px 0; /* Padding to add some space around the text */
+  color: white; /* Text color */
+  text-align: center; /* Center the text horizontally */
+  font-size: 1rem; /* Responsive font size */
+}
+
+footer p {
+  margin: 0; /* Remove default margins */
+  padding: 7px 412px;
+  color: white;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  footer p {
+    font-size: 0.9rem; /* Slightly reduce the font size for smaller screens */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  footer p {
+    font-size: 0.8rem; /* Further reduce the font size for very small screens */
+  }
+}
+
+
+/* General Profile Container Styles */
+.profile-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* Profile Image Styles */
+.profile-img {
+  max-width: 237px;  /* Ensures image scales responsively */
+  height: auto;     /* Maintains aspect ratio */
+  border-radius: -1px; /* Circular image */
+  margin-bottom: -81px;
+}
+
+/* Button Styling */
+.profile-button {
+  padding: 10px 5%;  /* Percentage-based padding for responsive scaling */
+  font-size: 1.2em;   /* Relative font size */
+  border: none;
+  background-color: #007bff; /* Button color */
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  width: auto; /* Default width */
+}
+
+.profile-button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Design using Media Queries */
 @media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    text-align: center;
+  .profile-container {
+    flex-direction: column;  /* Stack elements vertically */
+    padding: 10px;
   }
 
-  .profile-image-container {
-    margin-top: 20px;
+  .profile-img {
+    width: 50%; /* Adjust the width for smaller screens */
+    height: auto; /* Maintain aspect ratio */
   }
 
-  .profile-image {
-    max-width: 200px; /* Adjust for smaller screens */
+  .profile-button {
+    width: 80%; /* Full width button on smaller screens */
+    margin: 10px 0; /* Space between buttons */
   }
 }
 
 @media (max-width: 480px) {
-  .profile-image {
-    max-width: 150px; /* Further adjustment for very small screens */
+  .profile-img {
+    width: 70%; /* Further reduce image size on smaller devices */
+  }
+
+  .profile-button {
+    font-size: 1em; /* Adjust button size for smaller screens */
+  }
+}
+
+/* Global Styling for Consistency */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: #343a40;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+p {
+  color: #1d2026;;
+  font-size: 1.1em;
+}
+
+
+/* About Image */
+.about-img {
+  position: relative;
+  max-width: 200px;
+  overflow: hidden;
+  border-radius: 10%;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.about-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 10%;
+  transition: transform 0.4s ease;
+}
+
+.about-img:hover img {
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .profile-image, .about-img {
+    max-width: 150px;
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .navbar .nav-links {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-image {
+    margin-top: 1rem;
+  }
+
+  .card-container {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 576px) {
+  .btn-group {
+    flex-direction: column;
+  }
+
+  .btn {
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* General responsive tweaks */
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 0.9rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  h1, h2, h3 {
+    font-size: 1.8rem;
+  }
+
+  /* Adjust padding and spacing */
+  section {
+    padding: 30px 10px;
   }
 }
