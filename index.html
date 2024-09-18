@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Portfolio of Priya Kumari, a creative UI/UX designer and software developer experienced in ASP.NET, JavaScript, SQL, and API integration.">
+<meta name="keywords" content="Priya Kumari, portfolio, software developer, UI/UX designer, ASP.NET, SQL, API integration, web development">
   <title>Priya Kumari Portfolio</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
@@ -16,38 +18,9 @@
     <div class="loader"></div>
   </div>
 
- 
-  <!-- Navigation Bar -->
-<!-- <nav class="navbar">
-  <div class="logo">
-    <a href="#">PriysPortfolio</a>
-  </div>
-  <ul class="nav-links">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Services</a></li>
-    <li><a href="#">Contact</a></li>
-  </ul>
-  <div class="hamburger">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-  <div class="sidebar">
-    <div class="close-btn">&times;</div>
-    <ul class="sidebar-links">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Services</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
-  </div>
-</nav> -->
-
-
 <nav class="navbar">
   <div class="logo">
-    <a href="#">PriysPortfolio</a>
+    <a href="#">PriyaPortfolio</a>
   </div>
   <ul class="nav-links">
     <li><a href="#home">Home</a></li>
@@ -76,43 +49,42 @@
   </div>
 </nav>
 
-  
-
-
 
 <!-- Header Section -->
-<header class="header" id="home">
+<header class="hero-section">
   <div class="container">
-    <div class="intro">
-      <h1 data-aos="fade-up">Hi, I'm Priya Kumari</h1>
-      <p data-aos="fade-up" data-aos-delay="300">Software Developer | Specialized in .NET & JavaScript</p>
-      <a href="#about" class="btn" data-aos="fade-up" data-aos-delay="600">Learn More</a>
+      <div class="hero-text">
+          <p>MY NAME IS <span class="highlight">Hi, I'm Priya Kumari</span></p>
+          <h1>Software Developer | Specialized in .NET & JavaScript</h1>
+          <p>Experienced in designing seamless APIs, UI/UX, and delivering quality solutions.</p>
+          <div class="btn-group">
+              <a href="#contact" class="btn">Contact Me</a>
+              <a href="resume.pdf" class="btn" download>Download Resume</a>
+          </div>
+      </div>
+      <div class="hero-image">
+        <img src="priya.jpeg" alt="Profile of Priya Kumari" class="profile-img hero-img">
     </div>
     
-    <div class="profile-image-container" data-aos="fade-left" data-aos-delay="600">
-      <div class="profile-image">
-        <img src="priya.jpeg" alt="Priya Kumari">
-      </div>
-    </div>
   </div>
 </header>
-  
+
+
 
 <!-- About Section -->
 <section id="about" class="about-section">
   <div class="container">
     <div class="section-title" data-aos="fade-up">
       <h2>About Me</h2>
-      <p>Organized and dependable software developer with experience in ASP.NET, SQL, and API integration.</p>
+      <p>Organized and dependable software developer with experience in ASP.NET, ASP.NET MVC, ASP.NET CORE SQL,Jqeury and API integration.</p>
     </div>
     <div class="about-content card" data-aos="fade-up" data-aos-delay="300">
       <div class="profile-image" data-aos="fade-left" data-aos-delay="600">
-        <img src="priya.jpeg" alt="Priya Kumari">
-      </div>
+        <img src="priya.jpeg" alt="Priya Kumari" class="profile-img about-img">
+    </div>    
       <div class="about-text">
         <h3>Priya Kumari</h3>
         <p>I am proficient in leading teams to ensure seamless integration of APIs within CRM solutions. Experienced in both backend and frontend technologies, I thrive in dynamic and fast-paced environments.</p>
-        <p>Organized and dependable software developer with experience in ASP.NET, SQL, and API integration.</p>
         <ul class="contact-info">
           <li>Address: Kangra, India</li>
           <li>Email: priya083dhakur101@gmail.com</li>
@@ -123,46 +95,6 @@
   </div>
 </section>
 
-<!-- 
-  <section id="skills" class="skills-section">
-    <div class="container">
-      <div class="section-title" data-aos="fade-up">
-        <h2>Technical Skills</h2>
-      </div>
-      <div class="skills-container card" data-aos="fade-up" data-aos-delay="300">
-        <div class="skill">
-          <h3>.NET</h3>
-          <div class="progress-bar">
-            <div class="progress" data-skill-percent="90"></div>
-          </div>
-        </div>
-        <div class="skill">
-          <h3>ASP.NET</h3>
-          <div class="progress-bar">
-            <div class="progress" data-skill-percent="85"></div>
-          </div>
-        </div>
-        <div class="skill">
-          <h3>JavaScript</h3>
-          <div class="progress-bar">
-            <div class="progress" data-skill-percent="80"></div>
-          </div>
-        </div>
-        <div class="skill">
-          <h3>SQL</h3>
-          <div class="progress-bar">
-            <div class="progress" data-skill-percent="70"></div>
-          </div>
-        </div>
-        <div class="skill">
-          <h3>jQuery</h3>
-          <div class="progress-bar">
-            <div class="progress" data-skill-percent="75"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
 
   <!-- Skills Section -->
 <section id="skills" class="skills-section">
@@ -173,23 +105,31 @@
     <div class="card-container" data-aos="fade-up" data-aos-delay="300">
       <div class="card small-card">
         <h3>.NET</h3>
-        <p>Proficiency: 90%</p>
+        <p>Proficiency: 75%</p>
       </div>
       <div class="card small-card">
         <h3>ASP.NET</h3>
-        <p>Proficiency: 85%</p>
+        <p>Proficiency: 75%</p>
+      </div>
+      <div class="card small-card">
+        <h3>ASP.NET MVC</h3>
+        <p>Proficiency: 75%</p>
       </div>
       <div class="card small-card">
         <h3>JavaScript</h3>
-        <p>Proficiency: 80%</p>
+        <p>Proficiency: 60%</p>
       </div>
       <div class="card small-card">
         <h3>SQL</h3>
-        <p>Proficiency: 70%</p>
+        <p>Proficiency: 60%</p>
       </div>
       <div class="card small-card">
         <h3>jQuery</h3>
-        <p>Proficiency: 75%</p>
+        <p>Proficiency: 60%</p>
+      </div>
+      <div class="card small-card">
+        <h3>Rest Api</h3>
+        <p>Proficiency: 60%</p>
       </div>
     </div>
   </div>
@@ -205,12 +145,12 @@
       <div class="card small-card">
         <h3>Software Developer</h3>
         <h4>SoftWebPos, Surat (2023-09 - Current)</h4>
-        <p>Worked on ASP.NET Core, MS SQL, and JavaScript.</p>
+        <p>Worked on ASP.NET Core, MS SQL, and JavaScript, Jqury, Rest Api, Third Party Integration</p>
       </div>
       <div class="card small-card">
         <h3>Software Developer</h3>
         <h4>CS Soft Solution, Chandigarh (2022-09 - 2023-08)</h4>
-        <p>Worked on projects like Hunt Lease, Property Tax, FIP.</p>
+        <p>Worked on projects like Hunt Lease, Property Tax, FIP(Forest Information Portal).</p>
       </div>
     </div>
   </div>
@@ -238,7 +178,6 @@
     </div>
   </div>
 </section>
-
 
   <!-- Contact Section -->
   <section id="contact" class="contact-section">
